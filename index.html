@@ -26,7 +26,7 @@
 	@import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i');	
 	body {
 		font-family: "Nunito", MrDodo-Regular, Serif;
-		background: #fff;
+		background-image: url('assets/bg.png');
 		padding: 30px;
 		color: rgba(46,55,81,0.80);
 		text-rendering: optimizeLegibility;
@@ -34,6 +34,48 @@
     width: 1000px;
     margin: auto;
 	}
+
+  header {
+    width: 100%;
+    text-align: center;
+    height: 100px;
+
+  }
+  .logo {margin: 0 auto;}
+
+  .container { 
+  max-width: 1440px;
+  margin:50px 0;
+  float: left;
+  width: 100%; 
+ }
+
+  .photo {
+    width: 300px;
+    height: 200px;    
+    display: inline-block;
+    margin: 10px;
+    float: left;
+    background:#161416;  
+    }
+
+    img.photo { filter: contrast(75%) brightness(85%);}
+
+    
+
+    h2 {
+      margin: 0;
+      font-size: 130px;
+      font-family: "Proxima Nova", Montserrat, Open sans;
+      font-weight: 900;
+      color: #fff;
+     }
+
+     h2::first-letter {
+      border-bottom: 3px solid #fff;
+      margin-bottom: : -10px;
+      padding: 0px;
+     }
 
 	
 
@@ -47,8 +89,26 @@
   </head>
 
   <body>
+  	<header><img src="assets/logo.svg" class="logo">
+    </header>
+
+    <div class="container">
+      <h2>Music</h2>
+      <div><img src="assets/photos/concert/1.jpg" class="photo"></div>
+      <div><img src="assets/photos/concert/2.jpg" class="photo"></div>
+      <div><img src="assets/photos/concert/3.jpg" class="photo"></div>
+    </div>
+
+     <div class="container">
+      <h2>Street</h2>
+      <div class="photo"></div>
+      <div class="photo"></div>
+      <div class="photo"></div>
+      <div class="photo"></div>
+      <div class="photo"></div>
+      <div class="photo"></div>
+    </div>
   	
-  	gsdgdfg
 
 		
 
