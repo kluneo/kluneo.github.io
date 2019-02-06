@@ -27,12 +27,11 @@
 	
   body {
 		font-family: "Nunito", MrDodo-Regular, Serif;
-		background-image: url('/assets/bg.png');
+		background-image: url('./assets/bg.png');
 		padding: 30px;
 		color: rgba(46,55,81,0.80);
 		text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    width: 1000px;
+    -webkit-font-smoothing: antialiased;   
     margin: auto;
 	}
 
@@ -44,19 +43,13 @@
   }
   .logo {margin: 0 auto;}
 
-  .container { 
-  max-width: 1440px;
-  margin:50px 0;
-  float: left;
-  width: 100%; 
- }
+ 
 
   .photo {
-    width: 300px;
-    height: 200px;    
+     
     display: inline-block;
     margin: 10px;
-    float: left;
+    width: 100%;    
     background:#161416;  
     }
 
@@ -65,11 +58,13 @@
     
 
     h2 {
+      grid-column: 2/10;
       margin: 0;
       font-size: 130px;
       font-family: "Proxima Nova", Montserrat, Open sans;
       font-weight: 900;
       color: #fff;
+      grid-row: 0/1;
      }
 
      h2::first-letter {
@@ -77,6 +72,36 @@
       margin-bottom: : -10px;
       padding: 0px;
      }
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(1fr 0.5fr);
+ 
+  grid-gap: 5px;
+
+}
+
+.Thumbnails {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". . . .";  
+  grid-gap: 5px;
+}
+
+.premium {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 1fr;
+  
+}
+
+.premium img {
+grid-column: 4/10;
+grid-row: 0/1;
+}
 
 	
 
@@ -93,22 +118,35 @@
   	<header><img src="assets/logo.svg" class="logo">
     </header>
 
-    <div class="container">
-      <h2>Music</h2>
-      <div><img src="/assets/photos/concert/1.jpg" class="photo"></div>
-      <div><img src="/assets/photos/concert/2.jpg" class="photo"></div>
-      <div><img src="/assets/photos/concert/3.jpg" class="photo"></div>
+
+    <div class="grid-container">
+      
+      <div class="premium">
+        <h2>Music</h2>
+        <img src="./assets/photos/concert/1.jpg" class="photo">      
+      </div>
+      <div class="Thumbnails">       
+        <div><img src="./assets/photos/concert/1.jpg" class="photo"></div>
+        <div><img src="./assets/photos/concert/2.jpg" class="photo"></div>
+        <div><img src="./assets/photos/concert/3.jpg" class="photo"></div>
+        <div><img src="./assets/photos/concert/3.jpg" class="photo"></div>
+      </div>
+      
+      <div class="premium">
+        <h2>Street</h2>
+        <div><img src="./assets/photos/concert/1.jpg" class="photo"></div>        
+      </div>
+      <div class="Thumbnails">       
+        <div><img src="./assets/photos/concert/1.jpg" class="photo"></div>
+        <div><img src="./assets/photos/concert/2.jpg" class="photo"></div>
+        <div><img src="./assets/photos/concert/3.jpg" class="photo"></div>
+        <div><img src="./assets/photos/concert/3.jpg" class="photo"></div>
+      </div>
     </div>
 
-     <div class="container">
-      <h2>Street</h2>
-      <div class="photo"></div>
-      <div class="photo"></div>
-      <div class="photo"></div>
-      <div class="photo"></div>
-      <div class="photo"></div>
-      <div class="photo"></div>
-    </div>
+
+
+
   	
 
 		
