@@ -29,11 +29,12 @@
 		font-family: "Nunito", MrDodo-Regular, Serif;
 		background-image: url('./assets/bg.png');
 		padding: 30px;
-		color: rgba(46,55,81,0.80);
+		color: #fff;
 		text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;   
     margin: auto;
-	}
+    background-repeat: cover;
+	}  
 
   header {
     width: 100%;
@@ -45,12 +46,11 @@
 
  
 
-  .photo {
-     
-    display: inline-block;
-    margin: 10px;
-    width: 100%;    
-    background:#161416;  
+  .photo {   
+      grid-gap: 10px;
+    width: 100%;
+    background: #161416;
+    object-fit: cover;  
     }
 
     img.photo { filter: contrast(75%) brightness(85%);}
@@ -64,7 +64,8 @@
       font-family: "Proxima Nova", Montserrat, Open sans;
       font-weight: 900;
       color: #fff;
-      grid-row: 0/1;
+      grid-row: 1/2;
+      z-index: 1;
      }
 
      h2::first-letter {
@@ -94,14 +95,22 @@
 .premium {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: 1fr;
-  
+  grid-template-rows: repeat(10,1fr);
+  grid-auto-rows: auto;
+  height: 70vh;  
 }
 
 .premium img {
-grid-column: 4/10;
-grid-row: 0/1;
+    height: 100%;
+    grid-row: 1/10;
+    grid-column: 3/10;
 }
+
+.premium p {
+  grid-row: 2/4;
+  grid-column: 2;
+}
+
 
 	
 
@@ -123,8 +132,10 @@ grid-row: 0/1;
       
       <div class="premium">
         <h2>Music</h2>
-        <img src="./assets/photos/concert/1.jpg" class="photo">      
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <img src="./assets/photos/concert/1.jpg" class="photo">      ^
       </div>
+
       <div class="Thumbnails">       
         <div><img src="./assets/photos/concert/1.jpg" class="photo"></div>
         <div><img src="./assets/photos/concert/2.jpg" class="photo"></div>
@@ -134,8 +145,9 @@ grid-row: 0/1;
       
       <div class="premium">
         <h2>Street</h2>
-        <div><img src="./assets/photos/concert/1.jpg" class="photo"></div>        
+        <img src="./assets/photos/concert/1.jpg" class="photo">     
       </div>
+
       <div class="Thumbnails">       
         <div><img src="./assets/photos/concert/1.jpg" class="photo"></div>
         <div><img src="./assets/photos/concert/2.jpg" class="photo"></div>
