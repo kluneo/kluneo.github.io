@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="97px" height="70px" viewBox="0 0 97 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+<svg width="105px" height="70px" viewBox="0 0 105 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
     <title>Group 7</title>
     <desc>Created with Sketch.</desc>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Desktop-HD-Copy-2" transform="translate(-671.000000, -40.000000)">
-            <g id="Group-7" transform="translate(671.000000, 43.000000)">
-                <g id="Group-Copy" transform="translate(3.000000, 0.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="4.92">
-                    <polyline id="Path-3" points="3.55271368e-15 0 1.16212595e-14 45.6 45.6 0 57.6100781 0 11.5914844 45.6 22.8 45.6 68.4 0 68.4 45.6"></polyline>
-                    <polyline id="Path-4" points="91.2 45.6 91.2 0 69.4075684 21.7924316"></polyline>
+        <g id="Artboard" transform="translate(-546.000000, -40.000000)">
+            <g id="Group-7" transform="translate(545.000000, 42.000000)">
+                <g id="Group-Copy" transform="translate(8.000000, 0.000000)" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.04347826">
+                    <polyline id="Path-3" points="3.55271368e-15 0 1.17966627e-14 46.5913043 46.5913043 0 58.8624711 0 11.8434732 46.5913043 23.2956522 46.5913043 69.8869565 0 69.8869565 46.5913043"></polyline>
+                    <polyline id="Path-4" points="93.1826087 46.5913043 93.1826087 0 70.9164285 22.2661802"></polyline>
                 </g>
-                <text id="Photography" font-family="ProximaNova-Bold, Proxima Nova" font-size="12.9" font-weight="bold" fill="#FFFFFF">
-                    <tspan x="0.1347" y="65.7">PHOTOGRAPHY</tspan>
+                <text id="Photography" font-family="ProximaNova-Medium, Proxima Nova" font-size="12.9" font-weight="400" letter-spacing="1" fill="#FFFFFF">
+                    <tspan x="0.9505" y="66.7">PHOTOGRAPHY</tspan>
                 </text>
             </g>
         </g>
