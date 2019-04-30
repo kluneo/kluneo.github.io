@@ -23,8 +23,51 @@
     
 
 <style type="text/css">
-  header {
-    width: 100%;
+
+  .thumbnails {
+    grid-template-columns: repeat(2, 1fr);    
+    grid-gap: 5px;
+    display: grid;  
+  }
+
+  footer {
+    text-align: center;
+    padding: 15px;
+    margin: 30px 0 15px 0;
+    color: #aaa;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    position: relative;
+    opacity:1;
+  }
+
+  footer img {
+    width: 80px;
+    opacity: 0.5;
+    vertical-align: bottom;
+    margin: 0 15px;
+  }
+
+  menu {   
+    color: #fff;
+    text-align: center;
+  }
+
+  menuitem {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    color: #aaa;
+    border-right: 1px solid #333;
+    padding: 0 30px;
+  }
+
+  menuitem:last-of-type {
+    border-right: 0;
+  }
+
+  header {    
     text-align: center;
     height: 50px;
     padding: 15px;
@@ -78,15 +121,13 @@ h2 {
       text-align: left;  
      }
 
-
-
     .section-title {
       grid-column: 1/11;      
     }
 
     .premium p {
       grid-column: 1/11;
-      font-size: 16px      
+      font-size: 16px;      
     }
 
     .premium { 
@@ -95,18 +136,30 @@ h2 {
 
     .grid-container {  
       grid-template-columns: repeat(2, 1fr);
+      padding: 25px;
     }
 
     header {    
       height: 70px;      
+    }
+
+    .thumbnails {
+      grid-template-columns: repeat(4, 1fr);  
+    }
+
+    .close img {    
+    height: 80px;
+    }
+
+    .overlay {      
+      padding: 30px;
     }
   }
 
   body {
 		font-family: "Nunito", MrDodo-Regular, Serif;
 		/*background-image: url('./assets/bg.png');*/
-    background-color: #0F0E10;
-		padding: 0px 15px 15px 15px;
+    background-color: #0F0E10;		
 		color: #fff;
 		text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;   
@@ -147,15 +200,10 @@ h2 {
   margin: 0 auto;
   grid-template-columns: 1, 1fr;
   margin-top: 15px;
+  padding: 15px;
 }
 
-.Thumbnails {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: ". . . .";  
-  grid-gap: 5px;
-}
+
 
 
 
@@ -167,9 +215,7 @@ h2 {
 
 
 
-.blending {
-  background: #0D0C0D;
-  }
+
 
 .gradient {
   grid-column: 1/11;
@@ -199,15 +245,48 @@ h2 {
 }
 
 
+.overlay {  
+  padding: 30px;
+  z-index: 2;
+  position: absolute;
+  top:0;
+  background:rgba(0,0,0,0.9);  
+  height: 100%;
+}
+
+
+
+.close img {
+    position: absolute;
+    right: 60px;
+    width: 30px;
+    height: 35px;
+}
+
+
+.close:hover {
+  cursor: pointer;
+}
+
+.overlay h2 {
+  margin-bottom: 30px; 
+}
 
 </style>
 
   </head>
 
-  <body>
+
+  <body id="body">
   	<header>
-      <img src="assets/logo.svg" class="logo">
+      <img src="assets/logo.svg" class="logo">      
     </header>
+    <menu>
+      <menuitem id="home">Home</menuitem>
+      <menuitem id="street">Street</menuitem>
+      <menuitem>Concert</menuitem>
+      <menuitem>Landscape</menuitem>
+    </menu>
     <div class="grid-container">
       <div class="premium">
         <div class="gradient"></div>
@@ -222,14 +301,8 @@ h2 {
         <img src="./assets/photos/concert/7.jpg" class="photo"> 
       </div>
 
-   <!--   <div class="Thumbnails">       
-        <div class="blending"><img src="./assets/photos/concert/1.jpg" class="photo"></div>
-        <div class="blending"><img src="./assets/photos/concert/2.jpg" class="photo"></div>
-        <div class="blending"><img src="./assets/photos/concert/3.jpg" class="photo"></div>
-        <div class="blending"><img src="./assets/photos/concert/3.jpg" class="photo"></div>
-      </div>
-      -->
-       <div class="premium">
+
+       <div class="premium" id="premium_street">
         <div class="gradient"></div>
         <div class="section-title">
         <h2>Street</h2>
@@ -243,7 +316,7 @@ h2 {
       </div>
 
 
-      <div class="premium">
+      <div class="premium" id="premium_home">
         <div class="gradient"></div>
         <div class="section-title">
         <h2>Landscape</h2>
@@ -255,19 +328,65 @@ h2 {
         <img src="./assets/right-arrow.svg" class="right-arrow">
         <img src="./assets/photos/landscape/1.jpg" class="photo"> 
       </div>
+
+      <div class="premium">
+        <div class="gradient"></div>
+        <div class="section-title">
+        <h2>Human</h2>
+        </div>
+        <p>Hanni El Khatib<br >
+            Black Rebel Motorcycle Club<br >
+            Gallery Circus
+        </p>
+        <img src="./assets/right-arrow.svg" class="right-arrow">
+        <img src="./assets/photos/human/1.jpg" class="photo"> 
+      </div>
+
          </div>
+         <footer id="footer">
+          More on :
+          <img src="assets/500px_logo.svg">
+        </footer>
 
 
-
-
-  	
-
-		
+     <div class="overlay street">
+      <div class="close icon" id="close"><img src="./assets/close.svg"></div>
+      <h2>Concert</h2>
+      <div class="thumbnails"> 
+        <div class="blending"><img src="./assets/photos/concert/9.jpg" class="photo"></div>
+        <div class="blending"><img src="./assets/photos/concert/9.jpg" class="photo"></div>
+        <div class="blending"><img src="./assets/photos/concert/9.jpg" class="photo"></div>
+        <div class="blending"><img src="./assets/photos/concert/9.jpg" class="photo"></div>
+        <div class="blending"><img src="./assets/photos/concert/9.jpg" class="photo"></div>
+        <div class="blending"><img src="./assets/photos/concert/9.jpg" class="photo"></div>
+        <div class="blending"><img src="./assets/photos/concert/9.jpg" class="photo"></div>
+        <div class="blending"><img src="./assets/photos/concert/9.jpg" class="photo"></div>
+      </div>
+    </div>
+    
+       
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 <script src="app.js"></script>
 
+<script>
+    
+        document.getElementById('close').addEventListener('click', function() {
+            TweenMax.to('.overlay', 0.5, {opacity:0, ease: Circ.easeOut });
+            
+        })
+    
+</script>
 
+<script>
+    
+        document.getElementById('premium_street').addEventListener('click', function() {
+            TweenMax.to('overlay', 0.5, {opacity:1, ease: Circ.easeOut });
+            
+        })
+    
+</script>
+  
 
 </body>
 
