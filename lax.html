@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+
+    <script>
+      // init controller
+      var controller = new ScrollMagic.Controller();
+    </script>
+
+
+    <link href="style.css" rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+<div class="overlay">
+  <h2>Infos.</h2>
+  <div class="grid">
+    <img src="assets/photos/street/1.jpg">
+    <img src="assets/photos/street/2.jpg">
+    <img src="assets/photos/street/3.jpg">
+    <img src="assets/photos/street/4.jpg">
+    <img src="assets/photos/street/5.jpg">
+    <img src="assets/photos/street/6.jpg">
+    <img src="assets/photos/street/7.jpg">
+  </div>
+</div>
+<div class="viewport">
+  <div id="scroll-container" class="scroll-container">
+    <section class="intro">
+      <h1>
+        <span class="small">The portfolio of</span><br>
+        <span class="big">Valentin<br>Malherbe</span>
+      </h1>
+      <p class="desc">Product designer living in France, passionate about photography.</p>
+        <a class="intro--btn" href="#">learn more</a>
+      <ul>
+        <li class="category" id="section1Btn">scroll to position</li>
+        <li class="category"><a href="#nature">Nature</a></li>
+        <li class="category"><a href="#human">Human</a></li>
+        <li class="category"><a href="#music">Music</a></li>
+        <a class="category" id="kill">Kill the title</a>
+        <a class="category" id="trigger">overlay</a>
+      </ul>
+    </section>
+
+
+    <section class="music fade-in" id="music">
+        <h2>Music</h2>
+         <div class="mini-grid">
+            <div class="prez">
+              <h3>Hanni El Khatib</h3>
+              <p>Taken at Theatre Trianon in Paris in February 2014 on the "Specter At The Feast" tour.</p>
+              <span class="location">Paris</span>
+              <span class="date">2014</span>
+              <a href="#" class="btn mgT">view all</a>
+
+            </div>
+            <div class="photo"><img src="assets/photos/concert/hek/1.jpg" loading='lazy'></div>
+            <div class="photo"><img src="assets/photos/concert/1.jpg" loading='lazy'></div>
+            <div class="photo"><img src="assets/photos/concert/3.jpg" loading='lazy'></div>
+          </div>
+
+          <div class="mini-grid">
+            <div class="prez">
+              <h3>Black Rebel Motorcycle Club</h3>
+              <p>Taken at Theatre Trianon in Paris in February 2014 on the "Specter At The Feast" tour.</p>
+              <span class="location">Paris</span>
+              <span class="date">2014</span>
+              <a href="#" class="btn mgT">view all</a>
+            </div>
+            <div class="photo"><img src="assets/photos/concert/2.jpg" loading='lazy'></div>
+            <div class="photo"><img src="assets/photos/concert/4.jpg" loading='lazy'></div>
+            <div class="photo"><img src="assets/photos/concert/5.jpg" loading='lazy'></div>
+            <div class="photo"><img src="assets/photos/concert/6.jpg" loading='lazy'></div>
+          </div>
+
+
+          <div class="mini-grid">
+            <div class="prez">
+              <h3>Gary Clark Jr</h3>
+              <p>Taken at La Cigale in Paris in June 2019 on the "This land" tour.</p>
+              <span class="location">Paris</span>
+              <span class="date">2019</span>
+              <a href="#" class="btn mgT">view all</a>
+            </div>
+            <div  class="photo"><img src="assets/photos/concert/garyclark/3.jpg" loading='lazy'></div>
+            <div  class="photo"><img src="assets/photos/concert/garyclark/2.jpg" loading='lazy'></div>
+            <div  class="photo"><img src="assets/photos/concert/garyclark/1.jpg" loading='lazy'></div>
+            <div  class="photo"><img src="assets/photos/concert/garyclark/4.jpg" loading='lazy'></div>
+            <div  class="photo"><img src="assets/photos/concert/garyclark/5.jpg" loading='lazy'></div>
+
+          </div>
+    </section>
+
+
+  </div>
+</div>
+<!-- Timeline animation mouse -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+
+
+<!-- Smooth scroll mouse -->
+<script src="https://codepen.io/osublake/pen/e72106811a34efcccff91a03568cc790.js?v=3"></script>
+
+<!-- animation on scroll mouse -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/CSSPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/ScrollToPlugin.min.js"></script>
+
+
+<!-- scrollmagic -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+<script>// lazy loading img
+let lazyImages = [...document.querySelectorAll('.lazy-image')]
+let inAdvance = 300
+
+function lazyLoad() {
+    lazyImages.forEach(image => {
+        if (image.offsetTop < window.innerHeight + window.pageYOffset + inAdvance) {
+            image.src = image.dataset.src
+            image.onload = () => image.classList.add('loaded')
+        }
+    })
+
+    // if all loaded removeEventListener
+}
+
+lazyLoad()
+
+window.addEventListener('scroll', _.throttle(lazyLoad, 16))
+window.addEventListener('resize', _.throttle(lazyLoad, 16))
+
+</script>
+
+
+  <script>
+    var tl = new TimelineMax();
+    tl.from(".small", 0.50, {autoAlpha:0, y:100, ease: Power1.easeOut}, "small")
+    .from(".big", 0.25, {autoAlpha:0, y:50,ease: Power4.easeOut}, "small+=0.5")
+    .from(".desc", 0.25, {autoAlpha:0, ease: Power4.easeOut}, "+=0.25")
+    .from(".intro--btn", 0.5, {autoAlpha:0, ease: Power4.easeOut})
+    .staggerFrom(".category", 0.5, {autoAlpha:0, ease: Power4.easeOut},0.15);
+  </script>
+
+  <script>
+	$(function () { // wait for document ready
+		// init
+		var controller = new ScrollMagic.Controller({
+			globalSceneOptions: {
+				triggerHook: 'onLeave',
+				duration: "200%" // this works just fine with duration 0 as well
+				// However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
+				// Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
+			}
+		});
+
+		// get all slides
+		var slides = document.querySelectorAll("section.slide");
+
+		// create scene for every slide
+		for (var i=0; i<slides.length; i++) {
+			new ScrollMagic.Scene({
+					triggerElement: slides[i]
+				})
+				.setPin(slides[i], {pushFollowers: false})
+				.addIndicators() // add indicators (requires plugin)
+				.addTo(controller);
+		}
+	});
+</script>
+
+<script>
+ // Fade In Effect &  Timeline Fade In
+
+jQuery(document).ready(function($) {
+ var controller = new ScrollMagic.Controller();
+
+ $(".mini-grid").each(function() {
+
+ var timeline = new TimelineMax();
+ var fadeIn = TweenMax.from(this, '.6', {autoAlpha:0, y:200, ease: Power4.easeOut},  '.1');
+ var active = TweenMax.staggerFrom($(this).find( ".photo" ), 0.5, {autoAlpha:0, y:200, ease: Power4.easeOut}, 0.15);
+ timeline.add(fadeIn, 0).add(active, 0.5);
+
+ var scene = new ScrollMagic.Scene({triggerElement: this, offset: 0, reverse: false})
+
+   .setTween(timeline)
+   .addTo(controller)
+
+ });
+});
+
+</script>
+
+  <script>
+  console.clear();
+  var scroller = new SmoothScroll({
+    target: document.querySelector("#scroll-container"), // element container to scroll
+    scrollEase: 0.05,
+  });
+  </script>
+
+
+  <script>
+    var section1Btn = document.getElementById("section1Btn");
+
+    section1Btn.onclick = function() {
+      TweenLite.to(window, 1, {scrollTo:400});
+    }
+  </script>
+
+
+
+  <script>
+    var kill = document.getElementById("kill");
+    kill.onclick = function() {
+      var tl2 = new TimelineMax();
+      tl2.to(".desc", 0.15, {autoAlpha:0, ease: Power1.easeOut})
+      .to(".small", 0.15, {autoAlpha:0, ease: Power1.easeOut}, "+=0.15")
+      .to(".big", 0.15, {autoAlpha:0, ease: Power1.easeOut}, "+=0.15")
+      .to(".intro--btn", 0.15, {autoAlpha:0, ease: Power1.easeOut});
+    }
+  </script>
+
+
+
+  <script>
+    var trigger = document.getElementById("trigger");
+    trigger.onclick = function() {
+      var tl = new TimelineMax();
+      tl.set(".overlay", {css:{zIndex:1}}) // set is basically a 0-second duration tween
+      .to(".desc", 0.15, {autoAlpha:0, y:-15, ease: Power4.easeOut}, "+=0.15")
+      .to(".small", 0.15, {autoAlpha:0, y:-15, ease: Power1.easeOut}, "+=0.15")
+      .to(".big", 0.15, {autoAlpha:0,y:-30, ease: Power1.easeOut}, "+=0.15")
+      .to(".intro--btn", 0.15, {autoAlpha:0, ease: Power1.easeOut})
+      .to(".overlay", 0.5, {autoAlpha:1, ease: Power1.easeOut}, "+=0.5")
+      .staggerTo(".grid img", 0.5, {autoAlpha:1, ease: Power1.easeOut},0.15);
+    }
+  </script>
+
+  <script>
+  var html, body;
+
+window.onload = function() {
+  //getting all anchor elements
+  var links = document.links;
+
+  //getting html
+  html = document.documentElement;
+
+  //getting body
+  body = document.body;
+
+  for (var i = 0; i < links.length; i++) {
+    links[i].onclick = function() {
+      //getting current scroll position
+      var scrollTop = Math.round(body.scrollTop || html.scrollTop);
+      if (this.hash !== "") {
+        //preventing default anchor click behavior
+        event.preventDefault();
+
+        //getting element with id found in hash
+        var hashElement = document.getElementById(this.hash.substring(1));
+
+        var hashElementTop = 0;
+        var obj = hashElement;
+        while (obj.offsetParent) {
+          hashElementTop += obj.offsetTop;
+          obj = obj.offsetParent;
+        }
+        //getting element's position
+        hashElementTop = Math.round(hashElementTop);
+
+        scroll(scrollTop, hashElementTop, this.hash);
+      }
+    };
+  }
+};
+
+function scroll(from, to, hash) {
+  var timeInterval = 1; //in ms
+  var prevScrollTop;
+  var increment = to > from ? 10 : -10;
+
+  var scrollByPixel = setInterval(function() {
+    //getting current scroll position
+    var scrollTop = Math.round(body.scrollTop || html.scrollTop);
+
+    if (
+      prevScrollTop == scrollTop ||
+      (to > from && scrollTop >= to) ||
+      (to < from && scrollTop <= to)
+    ) {
+      clearInterval(scrollByPixel);
+      //Add hash to the url after scrolling
+      window.location.hash = hash;
+    } else {
+      body.scrollTop += increment;
+      html.scrollTop += increment;
+
+      prevScrollTop = scrollTop;
+    }
+  }, timeInterval);
+}
+  </script>
+  </body>
+</html>
