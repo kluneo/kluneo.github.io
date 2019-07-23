@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
     <title>title</title>
 
     <script>
@@ -39,8 +40,8 @@
         <li class="category"><a href="#nature">Nature</a></li>
         <li class="category"><a href="#human">Human</a></li>
         <li class="category"><a href="#music">Music</a></li>
-        <a class="category" id="kill">Kill the title</a>
-        <a class="category" id="trigger">overlay</a>
+        <li class="category" id="kill">Kill the title</li>
+        <li class="category" id="trigger">overlay</li>
       </ul>
     </section>
 
@@ -49,7 +50,8 @@
         <h2>Music</h2>
          <div class="mini-grid">
             <div class="prez">
-              <h3>Hanni El Khatib</h3>
+                <span class="artist">Hanni El Khatib</span>
+                <h3>Hanni El Khatib</h3>
               <p>Taken at Theatre Trianon in Paris in February 2014 on the "Specter At The Feast" tour.</p>
               <span class="location">Paris</span>
               <span class="date">2014</span>
@@ -63,7 +65,8 @@
 
           <div class="mini-grid">
             <div class="prez">
-              <h3>Black Rebel Motorcycle Club</h3>
+                <span class="artist">Black Rebel Motorcycle Club</span>
+                <h3>Black Rebel Motorcycle Club</h3>
               <p>Taken at Theatre Trianon in Paris in February 2014 on the "Specter At The Feast" tour.</p>
               <span class="location">Paris</span>
               <span class="date">2014</span>
@@ -78,7 +81,8 @@
 
           <div class="mini-grid">
             <div class="prez">
-              <h3>Gary Clark Jr</h3>
+                    <span class="artist">Gary Clark Jr</span>
+                    <h3>Gary Clark Jr</h3>
               <p>Taken at La Cigale in Paris in June 2019 on the "This land" tour.</p>
               <span class="location">Paris</span>
               <span class="date">2019</span>
@@ -91,6 +95,41 @@
             <div  class="photo"><img src="assets/photos/concert/garyclark/5.jpg" loading='lazy'></div>
 
           </div>
+    </section>
+
+    <section class="nature fade-in" id="nature">
+
+        <div class="full">
+            <h2>Nature</h2>
+            <img src="assets/photos/nature/2.jpg" loading='lazy'>
+        </div>
+
+        <div class="photo">
+            <img src="assets/photos/nature/1.jpg" loading='lazy'>
+             <span class="date">2014</span>
+             <span class="location">Saint-Nazaire, France</span>
+        </div>
+
+        
+         <div class="">
+            <div class="prez">
+                <span class="artist">Hanni El Khatib</span>
+                <h3>Hanni El Khatib</h3>
+              <p>Taken at Theatre Trianon in Paris in February 2014 on the "Specter At The Feast" tour.</p>
+              <span class="location">Paris</span>
+              <span class="date">2014</span>
+              <a href="#" class="btn mgT">view all</a>
+
+            </div>
+
+            <div class="photo"><img src="assets/photos/nature/2.jpg" loading='lazy'></div>
+            <div class="photo"><img src="assets/photos/nature/3.jpg" loading='lazy'></div>
+            <div class="photo"><img src="assets/photos/nature/4.jpg" loading='lazy'></div>
+            <div class="photo"><img src="assets/photos/nature/5.jpg" loading='lazy'></div>
+            <div class="photo"><img src="assets/photos/nature/6.jpg" loading='lazy'></div>
+        </div>
+
+
     </section>
 
 
@@ -112,7 +151,7 @@
 <!-- scrollmagic -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
@@ -148,32 +187,7 @@ window.addEventListener('resize', _.throttle(lazyLoad, 16))
     .staggerFrom(".category", 0.5, {autoAlpha:0, ease: Power4.easeOut},0.15);
   </script>
 
-  <script>
-	$(function () { // wait for document ready
-		// init
-		var controller = new ScrollMagic.Controller({
-			globalSceneOptions: {
-				triggerHook: 'onLeave',
-				duration: "200%" // this works just fine with duration 0 as well
-				// However with large numbers (>20) of pinned sections display errors can occur so every section should be unpinned once it's covered by the next section.
-				// Normally 100% would work for this, but here 200% is used, as Panel 3 is shown for more than 100% of scrollheight due to the pause.
-			}
-		});
 
-		// get all slides
-		var slides = document.querySelectorAll("section.slide");
-
-		// create scene for every slide
-		for (var i=0; i<slides.length; i++) {
-			new ScrollMagic.Scene({
-					triggerElement: slides[i]
-				})
-				.setPin(slides[i], {pushFollowers: false})
-				.addIndicators() // add indicators (requires plugin)
-				.addTo(controller);
-		}
-	});
-</script>
 
 <script>
  // Fade In Effect &  Timeline Fade In
@@ -183,16 +197,25 @@ jQuery(document).ready(function($) {
 
  $(".mini-grid").each(function() {
 
- var timeline = new TimelineMax();
- var fadeIn = TweenMax.from(this, '.6', {autoAlpha:0, y:200, ease: Power4.easeOut},  '.1');
- var active = TweenMax.staggerFrom($(this).find( ".photo" ), 0.5, {autoAlpha:0, y:200, ease: Power4.easeOut}, 0.15);
- timeline.add(fadeIn, 0).add(active, 0.5);
-
- var scene = new ScrollMagic.Scene({triggerElement: this, offset: 0, reverse: false})
-
+ var timeline = new TimelineMax()
+.from(this, '0.25', {x:100, skewX:3, skewY:3,  rotation:1, ease: Power4.easeInOut}, "stagger")
+.from($(this).find(".prez"), 0.15, { autoAlpha:0,  ease: Power4.easeInOut}, "stagger")
+.from($(this).find('h3'), 0.15, { x:-200, autoAlpha:0,  ease: Power4.easeInOut}, "stagger+=0.25")
+.from($(this).find(".artist"), 0.5, { y:500, autoAlpha:0,  ease: Power4.easeInOut}, "stagger+=0.5")
+.from($(this).find(".date"), 0.15, { y:50, autoAlpha:0,  ease: Power4.easeInOut}, "stagger+=0.25")
+.from($(this).find(".location"), 0.15, { y:50, autoAlpha:0,  ease: Power4.easeInOut}, "stagger+=0.25")
+.staggerFrom($(this).find(".photo"), 0.15, { autoAlpha:0,  ease: Power4.easeInOut}, 0.15)
+ var scene = new ScrollMagic.Scene({triggerElement:this, offset:-300, reverse: true, duration:this, triggerHook:0.8})
    .setTween(timeline)
    .addTo(controller)
-
+   .setClassToggle(this)
+   .addIndicators({
+           colorTrigger:'red',
+           colorStart:'orange',
+           colorEnd:'orange',
+           indent:200,
+           name:"test"
+       })
  });
 });
 
@@ -244,70 +267,6 @@ jQuery(document).ready(function($) {
     }
   </script>
 
-  <script>
-  var html, body;
 
-window.onload = function() {
-  //getting all anchor elements
-  var links = document.links;
-
-  //getting html
-  html = document.documentElement;
-
-  //getting body
-  body = document.body;
-
-  for (var i = 0; i < links.length; i++) {
-    links[i].onclick = function() {
-      //getting current scroll position
-      var scrollTop = Math.round(body.scrollTop || html.scrollTop);
-      if (this.hash !== "") {
-        //preventing default anchor click behavior
-        event.preventDefault();
-
-        //getting element with id found in hash
-        var hashElement = document.getElementById(this.hash.substring(1));
-
-        var hashElementTop = 0;
-        var obj = hashElement;
-        while (obj.offsetParent) {
-          hashElementTop += obj.offsetTop;
-          obj = obj.offsetParent;
-        }
-        //getting element's position
-        hashElementTop = Math.round(hashElementTop);
-
-        scroll(scrollTop, hashElementTop, this.hash);
-      }
-    };
-  }
-};
-
-function scroll(from, to, hash) {
-  var timeInterval = 1; //in ms
-  var prevScrollTop;
-  var increment = to > from ? 10 : -10;
-
-  var scrollByPixel = setInterval(function() {
-    //getting current scroll position
-    var scrollTop = Math.round(body.scrollTop || html.scrollTop);
-
-    if (
-      prevScrollTop == scrollTop ||
-      (to > from && scrollTop >= to) ||
-      (to < from && scrollTop <= to)
-    ) {
-      clearInterval(scrollByPixel);
-      //Add hash to the url after scrolling
-      window.location.hash = hash;
-    } else {
-      body.scrollTop += increment;
-      html.scrollTop += increment;
-
-      prevScrollTop = scrollTop;
-    }
-  }, timeInterval);
-}
-  </script>
   </body>
 </html>

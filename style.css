@@ -1,4 +1,13 @@
+@media only screen
+   and (min-width : 768px) {
+       .mini-grid div:nth-child(2) {
+       grid-column: 2 / span 2;
+       }
 
+       .mini-grid div:nth-child(3) {
+       grid-column: 1 / span 1;
+       }
+}
 :root {
   --margin:15px;
   --secondary-color:#2E3751;
@@ -16,6 +25,7 @@
 
 *, :after, :before {
   box-sizing: border-box;
+
 }
 
 body {
@@ -30,7 +40,6 @@ body {
   font-family: "Avenir Next Condensed";
   -webkit-font-smoothing:antialiased;
   background: #393939;
-
 }
 
 section {
@@ -43,7 +52,7 @@ section {
 
 section.intro {
   background: url('assets/bg2.jpg') bottom left no-repeat #393939;
-  /*background-size: cover;*/
+  background-size: cover;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -78,7 +87,6 @@ section.intro h1 .small {
   text-transform: uppercase;
   align-self: center;
   font-family: "Avenir Next Condensed";
-
 }
 
 section.intro ul {
@@ -115,6 +123,15 @@ section.intro li a {
   padding: 15px;
 }
 
+.chapter--list.inactive  img.inactive {
+    display: none;
+}
+
+
+.chapter--list > .chapter--list--head img.inactive {
+    display: none;
+}
+
 .category {}
 
 section.intro li a:hover {color: #aaa;}
@@ -144,7 +161,13 @@ section.music {
     font-family: "Avenir Next Condensed";
 }
 
-section.music h2 {
+section.nature {
+    color: #fff;
+    background: #333;
+    margin: 0 auto;
+}
+
+section h2 {
     font-weight: 900;
     font-size: 100px;
     color: #333333;
@@ -153,10 +176,44 @@ section.music h2 {
     max-width: 1200px;
     display: block;
     margin-top: 50px;
+    padding: 50px;
 }
 
+.full {
+    height: 800px;
+    background: #000;
+}
+
+.full h2 {
+    position: absolute;
+    color: #fff;
+    z-index: 1;
+    text-align: center;
+}
+
+.full img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.nature .photo img {
+    max-width: 1000px;
+}
 .prez {
 padding: 50px;
+}
+
+.artist {
+    font-size: 10rem;
+    position: absolute;
+    font-weight: 900;
+    color: #f4f4f4;
+    z-index: -1;
+    left: -200px;
+
+    line-height: 8rem;
 }
 
 .prez h3 {
@@ -176,18 +233,19 @@ color: #A7A7A7;
 margin: 0 0 15px 0;
 }
 
-.prez span {color:#A7A7A7; display: inline-block;}
+
 .prez .location {
 background: url('assets/location.svg') no-repeat left;
-padding-left: 15px;
-margin: 7px;
-
 }
 
 .prez .date {
 background: url('assets/date.svg')no-repeat left;
-padding-left: 15px;
-margin: 7px;
+}
+
+.location, .date {
+    color:#A7A7A7; display: inline-block;
+    padding-left: 15px;
+    margin: 7px;
 }
 
 .prez a.btn {
@@ -209,7 +267,7 @@ display: grid;
 grid-gap: 10px;
 max-width: 1200px;
 margin: 200px auto 400px auto;
-
+transition: all 0.5s ease-In-Out;
 grid-auto-flow: dense;
 /*grid-template-columns: repeat(3, 1fr);*/
 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -217,9 +275,11 @@ grid-auto-rows: minmax(180px, auto);
 
 }
 
+
+.photo {transition: all 0.15s ease-In-Out;}
 .mini-grid img, .hero img {
 width: 100%;
-filter: brightness(110%) contrast(70%);
+filter: brightness(100%) contrast(80%);
 }
 
 
@@ -237,13 +297,7 @@ height: 100%;
 }
 
 
-.mini-grid div:nth-child(2) {
-grid-column: 2 / span 2;
-}
 
-.mini-grid div:nth-child(3) {
-grid-column: 1 / span 1;
-}
 
 /*.mini-grid div:nth-child(4) {
 grid-column: 1 / 3;
@@ -293,7 +347,6 @@ max-width: 1200px;
 .grid img {
 object-fit: cover;
 width: 100%;
-transition: all 0.25s ease;
 
 }
 
@@ -310,7 +363,7 @@ height: 100%;
 top: 0;
 right: 0;
 padding: 50px;
-rotate:10deg;
+
 
 }
 
@@ -326,5 +379,5 @@ rotate:10deg;
 }
 
 .lazy-image {
-    background-color: black 
+    background-color: black
 }
