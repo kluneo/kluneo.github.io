@@ -1,5 +1,4 @@
-@media only screen
-   and (min-width : 768px) {
+@media only screen and (min-width : 768px) {
        .mini-grid div:nth-child(2) {
        grid-column: 2 / span 2;
        }
@@ -13,6 +12,11 @@
   --secondary-color:#2E3751;
   --black-bg:#2D3136;
   --text-color: rgba(44, 55, 83, 0.8);
+}
+
+.lazy {
+
+
 }
 
 .mgB {
@@ -123,14 +127,7 @@ section.intro li a {
   padding: 15px;
 }
 
-.chapter--list.inactive  img.inactive {
-    display: none;
-}
 
-
-.chapter--list > .chapter--list--head img.inactive {
-    display: none;
-}
 
 .category {}
 
